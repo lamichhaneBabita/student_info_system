@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Student List</title>
+
+    <link rel="import" href="header.html">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+
+<div>
+    <a href="/signup">Add Student</a>
+</div>
+
+<div th:switch="${student}" class="container">
+    <h2 th:case="null">No data yet</h2>
+    <div th:case="*">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Student_Id</th>
+                <th>Student_Name</th>
+                <th>Date_Of_Birth</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Gender</th>
+                <th>Department</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="d:${student}">
+                <td th:text = "${d.studentId}"></td>
+                <td th:text = "${d.name}"></td>
+                <td th:text = "${d.dob}"></td>
+                <td th:text = "${d.email}"></td>
+                <td th:text = "${d.mobileNum}"></td>
+
+                <td th:text = "${d.gender}"></td>
+                <td th:text = "${d.department}"></td>
+
+                <td><a th:href ="@{edit/{id}(id = ${d.studentId})}" >Edit</a></td>
+                <td><a th:href ="@{delete/{id}(id = ${d.studentId})}" >Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+</body>
+</html>

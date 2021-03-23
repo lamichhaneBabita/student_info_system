@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Student</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <div class="panel">
+        <div class="panel-default">
+            <div class="row">
+                <div class="col-md-2"></div>
+                    <div class="col-md-8 jumbotron">
+                        <h1>Add Student</h1>
+                        <form th:action="@{/add}" th:object="${student}" method="post" class="form-horizontal">
+
+                            <div class="form-group">
+                                <label for="name" >Name</label>
+                                <input type="text" th:field="*{name}" id="name" placeholder="Enter id" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="dob">Date_of_birth</label>
+                                <input type="text" th:field="*{dob}" id="dob" placeholder="Enter dob" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="text" th:field="*{email}" id="email" placeholder="Enter email" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="mobile">Mobile</label>
+                                <input type="number" th:field="*{mobileNum}" id="mobile" placeholder="Enter Mobile" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="gender">Gender</label>
+                                <input type="text" th:field="*{gender}" id="gender" placeholder="Enter Gender" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for ="department">Department</label>
+
+                                <input type="text" th:field="*{department}" id="department"
+                                       placeholder="Enter department" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Add Student" class="btn btn-success">
+                            </div>
+                        </form>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
